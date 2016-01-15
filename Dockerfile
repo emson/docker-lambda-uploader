@@ -1,7 +1,12 @@
-FROM python:2.7-alpine
+FROM python:2.7-slim
 
-RUN apk add --update --no-cache bash zip gcc musl-dev openssl-dev libffi-dev \
-    && pip install lambda-uploader \
+RUN apt-get update && apt-get install --no-install-recommends -y \
+	libssl-dev \
+	libffi-dev \
+	gcc \
+	&& rm -rf /var/lib/apt/lists/*
+
+RUN pip install lambda-uploader \
     && mkdir /data
 
 WORKDIR /data
