@@ -30,4 +30,6 @@ RUN virtualenv /venv && . /venv/bin/activate \
 
 WORKDIR /data
 
-ENTRYPOINT ["lambda-uploader"]
+COPY run.sh /run.sh
+
+ENTRYPOINT ["/run.sh"]
