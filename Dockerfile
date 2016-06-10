@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 	libssl-dev \
 	libffi-dev \
 	gcc \
+        git \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip install lambda-uploader \
